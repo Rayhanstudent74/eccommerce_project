@@ -21,11 +21,27 @@ const LoginSignup = () => {
     //For login (rayhan_the pro programmer)
     const login = async () =>{
         console.log("Login Function Executed",formData);
+        let responseData;
+        await fetch('http://localhost:4000/login',{
+            method:'POST',
+            headers:{
+                Accept:'application/form-data',
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify(formData),
+        }).then((response)=>response.json()).then((data)=>responseData=data)  //we will get a response and this pass data wil be saved in out response data variable
+              if(responseData.success){
+                localStorage.setItem('auth-token',responseData.token);
+                window.location.replace("/");
+              }else{
+                alert(responseData.errors)
+              }
     }
 
     //For Signup 
     const signup = async () =>{
         console.log("Signup  Function Executed",formData);
+
         let responseData;
         await fetch('http://localhost:4000/signup',{
             method:'POST',
@@ -38,6 +54,8 @@ const LoginSignup = () => {
               if(responseData.success){
                 localStorage.setItem('auth-token',responseData.token);
                 window.location.replace("/");
+              }else{
+                alert(responseData.errors)
               }
                
     }

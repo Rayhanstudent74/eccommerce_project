@@ -5,6 +5,10 @@ const app = express();
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const multer= require("multer");
+const path = require("path");
+const { type } = require("os");
+const bodyParser = require('body-parser');
 
 app.use(express.json());
 app.use(cors());
@@ -120,8 +124,8 @@ app.post('/signup', async (req, res) => {
     };
 
     const token = jwt.sign(data, 'secret_ecom');  // Generate the token
-    res.json({ success: true, token });
-});
+    res.json({ success: true, token })
+})
 
 // API to login users
 app.post('/login', async (req, res) => {
@@ -156,6 +160,12 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ success: false, errors: "Server error" });
     }
 });
+// Creating API for getting all products
+//app.get('/allproducts',async (req,res)=>{
+  //  let products = await Product.find({});
+   // console.log("All Product Fetched");
+   // res.send(products);
+//})
 
 // Start the server
 app.listen(port, (error) => {

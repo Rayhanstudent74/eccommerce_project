@@ -32,10 +32,8 @@ const ProductDisplay = (props) => {
                     <div className="productdisplay-right-price-new">৳{product.new_price}</div>
                 </div>
                 <div className="productdisplay-right-discription">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ex rem nostrum nemo excepturi!
-                   Nesciunt fugit ab aspernatur dolorem ex rem, repellendus, corporis cupiditate tenetur beatae est 
-                   possimus quasi cum! Delectus quo beatae non maiores vero quam est aliquam itaque eligendi quas sed 
-                   modi, enim, reprehenderit, officia sint obcaecati culpa!
+                 Stark Gadget BD is a Online Electronic Accessories Platform.
+                 Our Product Quality is best.Every product has its Warrenty. 
                 </div>
                 <div className="productdisplaly-right-color">
 
